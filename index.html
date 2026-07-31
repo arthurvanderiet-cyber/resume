@@ -537,40 +537,40 @@
     // skillMeta[skill].match = why it fits the target role (shown + highlights
     //                          the chip when a job description is loaded)
     // ============================================================
-    var TARGET = { role: "AWS Cloud Solutions Architect", company: "" };
+    var TARGET = { role: "Site Reliability Engineer II", company: "Mastercard" };
 
     var skillMeta = {
       // Automation & Development
-      "Python": { desc: "My primary automation language — powers the CM Hub Intel data pipeline (pandas/openpyxl) and the STL 72-Hour Buffer Analyzer.", match: "Automation and tooling language for building POCs, CI/CD steps, and IaC around AWS." },
-      "Power Automate": { desc: "Built flows that detect CRQ transport conflicts and drive automated email alerts to coordinators.", match: "" },
+      "Python": { desc: "My primary automation language — powers the CM Hub Intel data pipeline (pandas/openpyxl) and the STL 72-Hour Buffer Analyzer.", match: "Core scripting language for automation, operational tooling, and monitoring — a primary SRE requirement." },
+      "Power Automate": { desc: "Built flows that detect CRQ transport conflicts and drive automated email alerts to coordinators.", match: "Workflow automation that streamlines routine operational tasks." },
       "Power Apps": { desc: "Delivered the Hub Intel search app and a conflict-assessment dashboard used by NOC and Change Management teams.", match: "" },
       "VBA / Excel Macros": { desc: "Created a centralized maintenance-communication tool that standardized messaging and cut prep time.", match: "" },
-      "C# / .NET": { desc: "Wrote the Microsoft Graph API updater that syncs the consolidated CMDB to SharePoint in minutes.", match: "Service-development experience that transfers to building and deploying microservices." },
-      "Azure Functions": { desc: "Built a serverless C# function that auto-splits multi-page Visio network maps.", match: "Hands-on serverless, event-driven design that maps directly to AWS Lambda and cloud-native patterns." },
+      "C# / .NET": { desc: "Wrote the Microsoft Graph API updater that syncs the consolidated CMDB to SharePoint in minutes.", match: "Building operational tooling, including a fault-tolerant updater with retry/backoff." },
+      "Azure Functions": { desc: "Built a serverless C# function that auto-splits multi-page Visio network maps.", match: "Serverless automation for routine operational tasks — transfers directly to cloud SRE tooling." },
       "Microsoft Graph API": { desc: "Certificate-authenticated Graph client with batched, parallel writes and retry/backoff for SharePoint list updates.", match: "" },
-      "REST APIs": { desc: "Integrated with Microsoft Graph and SharePoint REST endpoints for automated data sync.", match: "API-first integration experience relevant to microservices architectures." },
+      "REST APIs": { desc: "Integrated with Microsoft Graph and SharePoint REST endpoints for automated data sync.", match: "API integration for tooling, deployment, and incident-response automation." },
       "SharePoint": { desc: "Backs the Hub Intel tool as its data store and hosts the transport map library.", match: "" },
-      "Git": { desc: "Version control across all of my automation projects.", match: "Version-control foundation for GitOps and modern DevOps workflows." },
-      "CI/CD & GitLab Runners": { desc: "GitLab pipeline that deploys the Hub Intel web app on every push to main.", match: "Directly maps to 'implement CI/CD pipelines' and the GitOps/DevOps practices this role values." },
-      "pytest": { desc: "Property-based tests (Hypothesis) that guard data-integrity invariants in the pipeline.", match: "Automated testing wired into CI pipelines." },
+      "Git": { desc: "Version control across all of my automation projects.", match: "Version-control foundation for CI/CD and DevOps workflows." },
+      "CI/CD & GitLab Runners": { desc: "GitLab pipeline that deploys the Hub Intel web app on every push to main.", match: "Directly maps to the CI/CD pipeline and DevOps practices this role requires." },
+      "pytest": { desc: "Property-based tests (Hypothesis) that guard data-integrity invariants in the pipeline.", match: "Automated testing that keeps operational tooling reliable." },
 
       // Cloud & AWS
-      "AWS": { desc: "Hands-on via AWS Cloud Quest — Cloud Practitioner complete, Solutions Architect in progress.", match: "Core platform for this role; actively building AWS depth through hands-on Cloud Quest labs." },
-      "EC2": { desc: "Provisioned and managed virtual compute instances in Cloud Quest labs.", match: "Compute foundation for the cloud-native workloads this role designs and scales." },
-      "S3": { desc: "Object storage for static assets and data across Cloud Quest scenarios.", match: "Object storage underpinning cloud-native and POC architectures." },
-      "VPC": { desc: "Designed isolated networks with subnets, route tables, and gateways.", match: "Covers the 'solid understanding of networking' requirement." },
-      "IAM": { desc: "Configured least-privilege roles and policies for secure access.", match: "Maps to the required IAM and security understanding in AWS." },
-      "Lambda": { desc: "Built event-driven serverless functions — mirrors my Azure Functions work.", match: "Serverless, event-driven compute for cloud-native, microservices-style workloads." },
+      "AWS": { desc: "Hands-on via AWS Cloud Quest — Cloud Practitioner complete, Solutions Architect in progress.", match: "Cloud platform experience (AWS/Azure) needed to deploy and operate scalable, available systems." },
+      "EC2": { desc: "Provisioned and managed virtual compute instances in Cloud Quest labs.", match: "Compute provisioning and operation for high-availability workloads." },
+      "S3": { desc: "Object storage for static assets and data across Cloud Quest scenarios.", match: "Durable storage for operational data, logs, and artifacts." },
+      "VPC": { desc: "Designed isolated networks with subnets, route tables, and gateways.", match: "Networking and security — supports the systems and network administration requirement." },
+      "IAM": { desc: "Configured least-privilege roles and policies for secure access.", match: "Access control and security across cloud environments." },
+      "Lambda": { desc: "Built event-driven serverless functions — mirrors my Azure Functions work.", match: "Serverless automation for monitoring, deployment, and incident-response tasks." },
       "RDS": { desc: "Managed relational databases in the cloud.", match: "" },
-      "DynamoDB": { desc: "Worked with NoSQL key-value storage for scalable applications.", match: "NoSQL data layer for decoupled, microservices architectures." },
+      "DynamoDB": { desc: "Worked with NoSQL key-value storage for scalable applications.", match: "" },
       "Route 53": { desc: "DNS routing and health checks.", match: "" },
       "CloudFront": { desc: "CDN delivery for low-latency content.", match: "" },
-      "Auto Scaling": { desc: "Scaled compute automatically to match demand.", match: "Meets the scalability and performance best-practice requirements." },
-      "ELB": { desc: "Distributed traffic across instances for availability.", match: "Load balancing for scalable, highly available services." },
-      "SNS": { desc: "Pub/sub notifications for decoupled messaging.", match: "Event/pub-sub messaging for decoupled microservices." },
-      "SQS": { desc: "Message queues for decoupling and buffering workloads.", match: "Queue-based decoupling for resilient microservices." },
-      "CloudWatch": { desc: "Monitoring, metrics, and alarms — pairs with my NOC surveillance background.", match: "Monitoring and observability called out in the requirements." },
-      "CloudFormation": { desc: "Infrastructure as code for repeatable deployments.", match: "Infrastructure as Code — one of the two IaC tools the role names, alongside Terraform." },
+      "Auto Scaling": { desc: "Scaled compute automatically to match demand.", match: "Scaling systems to meet demand — central to the reliability and scalability focus." },
+      "ELB": { desc: "Distributed traffic across instances for availability.", match: "Load balancing for high availability and fault tolerance." },
+      "SNS": { desc: "Pub/sub notifications for decoupled messaging.", match: "Alerting and notifications that support incident detection and response." },
+      "SQS": { desc: "Message queues for decoupling and buffering workloads.", match: "Queue-based decoupling for resilient, fault-tolerant services." },
+      "CloudWatch": { desc: "Monitoring, metrics, and alarms — pairs with my NOC surveillance background.", match: "Metrics, logs, and alarms — directly supports the observability and proactive-monitoring requirements." },
+      "CloudFormation": { desc: "Infrastructure as code for repeatable deployments.", match: "Infrastructure as Code for repeatable, reliable deployments (a DevOps practice)." },
 
       // Data & Reporting
       "SQL": { desc: "Query and consolidate hub, node, and device data across multiple systems.", match: "" },
@@ -587,24 +587,24 @@
       "Executive Reporting": { desc: "Monthly leadership reporting and year-over-year trend analysis.", match: "" },
 
       // Operations & Process
-      "ITIL Framework": { desc: "Change, incident, and problem practices applied daily on a large-scale network.", match: "" },
-      "Change Management": { desc: "Review 1,000+ planned maintenance changes a year to prevent self-induced outages.", match: "" },
-      "Incident Management": { desc: "Led outage bridges and coordinated multi-team responses in the NOC.", match: "Production-operations experience for keeping scalable systems reliable." },
-      "Problem Management": { desc: "Root-cause recurring issues and drive preventative fixes.", match: "" },
-      "Root Cause Analysis": { desc: "Investigate alarms and defects to eliminate repeat impact.", match: "Supports production-readiness and the operational guidelines this role documents." },
-      "Network Surveillance": { desc: "Monitored VoIP/HSD/Video events with Netcool and Remedy.", match: "" },
-      "Method of Procedure": { desc: "Authored MOP templates and process docs across 7 verticals.", match: "" },
-      "Compliance & Risk": { desc: "Validate scope and dependencies to reduce change risk.", match: "Aligns with delivering secure, best-practice architectures." },
+      "ITIL Framework": { desc: "Change, incident, and problem practices applied daily on a large-scale network.", match: "Core to the IT Service Management requirement — incident, problem, and change practices." },
+      "Change Management": { desc: "Review 1,000+ planned maintenance changes a year to prevent self-induced outages.", match: "Proactive change management to protect production and maximize customer experience." },
+      "Incident Management": { desc: "Led outage bridges and coordinated multi-team responses in the NOC.", match: "Triage and incident response — a central SRE responsibility in this role." },
+      "Problem Management": { desc: "Root-cause recurring issues and drive preventative fixes.", match: "Problem management and prevention, aligned with the ITSM requirement." },
+      "Root Cause Analysis": { desc: "Investigate alarms and defects to eliminate repeat impact.", match: "Root cause and blameless post-mortems, exactly as this role describes." },
+      "Network Surveillance": { desc: "Monitored VoIP/HSD/Video events with Netcool and Remedy.", match: "Production monitoring/surveillance that maps to observability and proactive monitoring." },
+      "Method of Procedure": { desc: "Authored MOP templates and process docs across 7 verticals.", match: "Documenting operational procedures and standards — a listed responsibility." },
+      "Compliance & Risk": { desc: "Validate scope and dependencies to reduce change risk.", match: "Compliance and risk mitigation across environments, called out explicitly." },
 
       // Platforms & Tools
       "Microsoft 365": { desc: "Day-to-day platform for automation across SharePoint, Power Platform, and Graph.", match: "" },
-      "Azure": { desc: "Serverless functions and cloud identity via app registrations and certificates.", match: "Cross-cloud serverless and identity experience that transfers to AWS." },
+      "Azure": { desc: "Serverless functions and cloud identity via app registrations and certificates.", match: "Cloud platform for deploying and operating scalable, available applications." },
       "SharePoint Online": { desc: "Hosts the Hub Intel data source and the Visio map library.", match: "" },
-      "Visio": { desc: "Parse .vsdx network maps to extract CLLIs and link topology to hubs.", match: "Supports the 'document architectures and patterns' responsibility." },
-      "GitLab": { desc: "Source control and CI/CD for the Hub Intel projects.", match: "CI/CD platform experience for building and shipping applications." },
-      "BMC Remedy": { desc: "Source of hub/equipment data and the change ticketing system.", match: "" },
-      "Jira": { desc: "Issue and work tracking.", match: "" },
-      "Netcool": { desc: "Network event monitoring in the NOC.", match: "" },
+      "Visio": { desc: "Parse .vsdx network maps to extract CLLIs and link topology to hubs.", match: "Documenting operational procedures and architecture — a listed responsibility." },
+      "GitLab": { desc: "Source control and CI/CD for the Hub Intel projects.", match: "CI/CD platform for reliable, automated software delivery." },
+      "BMC Remedy": { desc: "Source of hub/equipment data and the change ticketing system.", match: "ITSM platform for incident, problem, and change management." },
+      "Jira": { desc: "Issue and work tracking.", match: "Agile issue tracking used in DevOps workflows." },
+      "Netcool": { desc: "Network event monitoring in the NOC.", match: "Real-time event monitoring/observability — core to SRE proactive monitoring." },
       "PowerPoint": { desc: "Executive presentations, including the Hub Intel rollout deck.", match: "" }
     };
 

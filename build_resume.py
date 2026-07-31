@@ -145,6 +145,7 @@ section_heading("Core Skills")
 
 skill_groups = [
     ("Automation & Development", "Python  \u00b7  Power Automate  \u00b7  Power Apps  \u00b7  VBA / Excel Macros  \u00b7  C# / Azure Functions  \u00b7  SharePoint  \u00b7  CI/CD & GitLab Runners"),
+    ("Cloud & AWS", "AWS  \u00b7  EC2  \u00b7  S3  \u00b7  VPC  \u00b7  IAM  \u00b7  Lambda  \u00b7  RDS  \u00b7  DynamoDB  \u00b7  CloudWatch  \u00b7  CloudFormation"),
     ("Data & Reporting", "SQL  \u00b7  Power BI  \u00b7  Tableau  \u00b7  Microsoft Excel & Access  \u00b7  Analytical & Executive Reporting"),
     ("Operations & Process", "ITIL Framework  \u00b7  Change & Incident Management  \u00b7  Network Surveillance  \u00b7  Method of Procedure (MOP)  \u00b7  Compliance & Risk"),
     ("Platforms & Tools", "Microsoft 365  \u00b7  BMC Remedy  \u00b7  Jira  \u00b7  Netcool  \u00b7  PowerPoint"),
@@ -292,6 +293,7 @@ er2.font.size = Pt(9.5)
 er2.font.color.rgb = GRAY
 
 bullet("SCTE Certifications: DOCSIS Engineering Professional, Broadband Telecommunications Specialist, Understanding Cable Technology.", bold_lead="")
+bullet("AWS Training: AWS Cloud Quest \u2014 Cloud Practitioner (completed); Solutions Architect (in progress).", bold_lead="")
 bullet("Professional Development (Udemy): Python (Beginner to Advanced), SQL, Microsoft Access (Beginner to Advanced), Tableau Data Analytics, Analytics Engineering Bootcamp.", bold_lead="")
 
 # ---- Save ----

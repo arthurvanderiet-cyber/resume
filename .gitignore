@@ -1,0 +1,16 @@
+# Draft/source resume files kept local (contain outdated content and third-party contact info)
+Art Van de riet.docx
+Art_Van_de_Riet_Resume.docx
+Art_Van_de_Riet_Resume.pdf
+Avanderiet-resume.docx
+CM resume.docx
+Cover_Letter_M365_Position.docx
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+Thumbs.db
+.DS_Store
+~$*

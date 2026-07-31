@@ -53,7 +53,7 @@
     background: #fff;
     box-shadow: 0 10px 40px rgba(31, 42, 68, 0.10);
     border-radius: 10px;
-    overflow: hidden;
+    /* no overflow:hidden here — it would break position:sticky on the nav */
   }
 
   /* Header */
@@ -61,6 +61,7 @@
     background: linear-gradient(135deg, var(--navy) 0%, #2b3b5e 100%);
     color: #fff;
     padding: 40px 48px 34px;
+    border-radius: 10px 10px 0 0;
   }
   header h1 {
     font-size: 2.6rem;
@@ -100,7 +101,7 @@
 
   /* Body */
   main { padding: 34px 48px 44px; }
-  section { margin-bottom: 30px; }
+  section { margin-bottom: 30px; scroll-margin-top: 58px; }
   h2 {
     font-size: 0.95rem;
     text-transform: uppercase;
@@ -151,25 +152,34 @@
   .cert { font-size: 0.9rem; margin-top: 8px; }
   .cert .label { font-weight: 700; color: var(--accent); }
 
-  footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--gray); border-top: 1px solid var(--line); }
+  footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--gray); border-top: 1px solid var(--line); border-radius: 0 0 10px 10px; }
 
-  /* Highlights strip */
-  .highlights {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+  /* Sticky navigation ribbon */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
     background: var(--navy);
     border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 3px 12px rgba(31, 42, 68, 0.18);
   }
-  .highlight {
-    padding: 16px 12px;
+  .nav a {
+    flex: 1;
     text-align: center;
-    color: #fff;
-    border-left: 1px solid rgba(255,255,255,0.10);
+    padding: 15px 8px;
+    color: #a9c4e0;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 3px solid transparent;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+    white-space: nowrap;
   }
-  .highlight:first-child { border-left: none; }
-  .highlight .num { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.1; }
-  .highlight .cap { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: #a9c4e0; margin-top: 4px; }
+  .nav a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+  .nav a.active { color: #fff; border-bottom-color: #7fb0e0; background: rgba(255,255,255,0.05); }
 
   /* Section heading icons */
   h2 { display: flex; align-items: center; gap: 9px; }
@@ -192,19 +202,21 @@
   /* Responsive */
   @media (max-width: 640px) {
     .page { margin: 0; border-radius: 0; }
-    header { padding: 28px 24px; }
+    header { padding: 28px 24px; border-radius: 0; }
     header h1 { font-size: 2rem; }
     main { padding: 24px; }
-    .highlights { grid-template-columns: repeat(2, 1fr); }
-    .highlight:nth-child(3) { border-left: none; }
-    .highlight:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.10); }
+    footer { border-radius: 0; }
+    /* let the tab ribbon scroll sideways instead of cramming 5 tabs */
+    .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a { flex: 0 0 auto; padding: 13px 16px; }
   }
 
   /* Print */
   @media print {
     body { background: #fff; }
     .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
-    .actions { display: none; }
+    .actions, .nav { display: none; }
     header { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .project { background: var(--accent-light) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
@@ -227,20 +239,21 @@
       </div>
     </header>
 
-    <div class="highlights">
-      <div class="highlight"><span class="num">10+</span><span class="cap">Years Experience</span></div>
-      <div class="highlight"><span class="num">1,000+</span><span class="cap">Changes Reviewed / Yr</span></div>
-      <div class="highlight"><span class="num">0</span><span class="cap">Error Rate on Approvals</span></div>
-      <div class="highlight"><span class="num">4</span><span class="cap">Automation Tools Shipped</span></div>
-    </div>
+    <nav class="nav" aria-label="Resume sections">
+      <a href="#summary">Summary</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </nav>
 
     <main>
-      <section>
+      <section id="summary">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg>Professional Summary</h2>
         <p class="summary">Results-driven systems engineer with 10+ years of experience spanning network operations, service delivery, and change management. Specializes in building automation and reporting solutions with Python, the Microsoft Power Platform, and SQL that eliminate process bottlenecks, prevent service-impacting outages, and give technical teams faster, data-driven decisions. Recognized for delivering production-ready tools, high-impact executive reporting, and process improvements that protect large-scale networks.</p>
       </section>
 
-      <section>
+      <section id="skills">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>Core Skills</h2>
 
         <div class="skill-block">
@@ -269,7 +282,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="experience">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professional Experience</h2>
 
         <div class="job">
@@ -326,7 +339,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="projects">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Key Projects</h2>
 
         <div class="project">
@@ -365,7 +378,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="education">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>Education &amp; Certifications</h2>
         <div class="edu-item">
           <div class="deg">Associate of Applied Science, Information Technology &amp; Computer Network Systems</div>
@@ -380,6 +393,38 @@
       &copy; <span id="year"></span> Art Van de Riet &middot; Built with HTML &amp; hosted on GitHub Pages
     </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Highlight the active tab as each section scrolls into view
+    (function () {
+      var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+      var byId = {};
+      links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+      function setActive(id) {
+        links.forEach(function (a) { a.classList.remove('active'); });
+        if (byId[id]) byId[id].classList.add('active');
+      }
+
+      var sections = links
+        .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+        .filter(Boolean);
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        sections.forEach(function (s) { observer.observe(s); });
+      }
+
+      // Immediate feedback on click
+      links.forEach(function (a) {
+        a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); });
+      });
+    })();
+  </script>
 </body>
 </html>

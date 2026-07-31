@@ -292,6 +292,7 @@ er2.italic = True
 er2.font.size = Pt(9.5)
 er2.font.color.rgb = GRAY
 
+bullet("Leadership Development: Charter Communications Technical Leadership Development Program (TLDP) \u2014 selected participant, 2026 cohort (8-month cross-functional program: mentoring, DDI leadership modules, and an executive presentation to senior leadership).", bold_lead="")
 bullet("SCTE Certifications: DOCSIS Engineering Professional, Broadband Telecommunications Specialist, Understanding Cable Technology.", bold_lead="")
 bullet("AWS Training: AWS Cloud Quest \u2014 Cloud Practitioner (completed); Solutions Architect (in progress).", bold_lead="")
 bullet("Professional Development (Udemy): Python (Beginner to Advanced), SQL, Microsoft Access (Beginner to Advanced), Tableau Data Analytics, Analytics Engineering Bootcamp.", bold_lead="")

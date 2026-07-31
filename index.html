@@ -199,6 +199,70 @@
   .skill-block { margin-bottom: 14px; }
   .skill-block .cat { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--navy); margin-bottom: 7px; }
 
+  /* Interactive skill tooltips */
+  .chip.has-info { cursor: help; }
+  .chip.has-info:hover, .chip.has-info:focus { border-color: var(--accent); outline: none; }
+  .chip.matched {
+    background: #e9f7ef;
+    color: #1e7d47;
+    border-color: #a7e0c0;
+    position: relative;
+  }
+  .chip.matched::after {
+    content: '';
+    position: absolute;
+    top: -3px; right: -3px;
+    width: 8px; height: 8px;
+    background: #2fa96a;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+  }
+  #skill-tip {
+    position: fixed;
+    z-index: 100;
+    max-width: 300px;
+    background: var(--navy);
+    color: #eef3fa;
+    padding: 11px 13px;
+    border-radius: 9px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    box-shadow: 0 10px 28px rgba(31, 42, 68, 0.30);
+    opacity: 0;
+    transform: translateY(3px);
+    pointer-events: none;
+    transition: opacity .12s ease, transform .12s ease;
+  }
+  #skill-tip.show { opacity: 1; transform: translateY(0); }
+  #skill-tip .tip-title { font-weight: 700; margin-bottom: 4px; color: #fff; }
+  #skill-tip .tip-match {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    color: #cdeedb;
+  }
+  #skill-tip .tip-match .lbl {
+    display: block; font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.6px; color: #8fd3ac; margin-bottom: 3px;
+  }
+  .tailored-note {
+    font-size: 0.85rem;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid #d3e0ee;
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    display: none;
+  }
+  .tailored-note.show { display: block; }
+  @media print {
+    #skill-tip { display: none !important; }
+    .chip.matched { background: var(--accent-light) !important; color: var(--accent) !important; }
+    .chip.matched::after { display: none; }
+    .tailored-note { display: none !important; }
+  }
+
   /* Responsive */
   @media (max-width: 640px) {
     .page { margin: 0; border-radius: 0; }
@@ -255,6 +319,8 @@
 
       <section id="skills">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>Core Skills</h2>
+
+        <div class="tailored-note" id="tailoredNote"></div>
 
         <div class="skill-block">
           <div class="cat">Automation &amp; Development</div>
@@ -426,6 +492,8 @@
       &copy; <span id="year"></span> Art Van de Riet &middot; Built with HTML &amp; hosted on GitHub Pages
     </footer>
   </div>
+
+  <div id="skill-tip" role="tooltip" aria-hidden="true"></div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -457,6 +525,165 @@
       links.forEach(function (a) {
         a.addEventListener('click', function () { setActive(a.getAttribute('href').slice(1)); });
       });
+    })();
+  </script>
+  <script>
+    // ============================================================
+    // Interactive skill tooltips — JD-aware tailoring
+    // ------------------------------------------------------------
+    // TARGET: set when tailoring to a specific job posting.
+    //   e.g. var TARGET = { role: "Cloud Systems Engineer", company: "Acme" };
+    // skillMeta[skill].desc  = how Art has used the skill (always shown)
+    // skillMeta[skill].match = why it fits the target role (shown + highlights
+    //                          the chip when a job description is loaded)
+    // ============================================================
+    var TARGET = { role: "AWS Cloud Solutions Architect", company: "" };
+
+    var skillMeta = {
+      // Automation & Development
+      "Python": { desc: "My primary automation language — powers the CM Hub Intel data pipeline (pandas/openpyxl) and the STL 72-Hour Buffer Analyzer.", match: "Automation and tooling language for building POCs, CI/CD steps, and IaC around AWS." },
+      "Power Automate": { desc: "Built flows that detect CRQ transport conflicts and drive automated email alerts to coordinators.", match: "" },
+      "Power Apps": { desc: "Delivered the Hub Intel search app and a conflict-assessment dashboard used by NOC and Change Management teams.", match: "" },
+      "VBA / Excel Macros": { desc: "Created a centralized maintenance-communication tool that standardized messaging and cut prep time.", match: "" },
+      "C# / .NET": { desc: "Wrote the Microsoft Graph API updater that syncs the consolidated CMDB to SharePoint in minutes.", match: "Service-development experience that transfers to building and deploying microservices." },
+      "Azure Functions": { desc: "Built a serverless C# function that auto-splits multi-page Visio network maps.", match: "Hands-on serverless, event-driven design that maps directly to AWS Lambda and cloud-native patterns." },
+      "Microsoft Graph API": { desc: "Certificate-authenticated Graph client with batched, parallel writes and retry/backoff for SharePoint list updates.", match: "" },
+      "REST APIs": { desc: "Integrated with Microsoft Graph and SharePoint REST endpoints for automated data sync.", match: "API-first integration experience relevant to microservices architectures." },
+      "SharePoint": { desc: "Backs the Hub Intel tool as its data store and hosts the transport map library.", match: "" },
+      "Git": { desc: "Version control across all of my automation projects.", match: "Version-control foundation for GitOps and modern DevOps workflows." },
+      "CI/CD & GitLab Runners": { desc: "GitLab pipeline that deploys the Hub Intel web app on every push to main.", match: "Directly maps to 'implement CI/CD pipelines' and the GitOps/DevOps practices this role values." },
+      "pytest": { desc: "Property-based tests (Hypothesis) that guard data-integrity invariants in the pipeline.", match: "Automated testing wired into CI pipelines." },
+
+      // Cloud & AWS
+      "AWS": { desc: "Hands-on via AWS Cloud Quest — Cloud Practitioner complete, Solutions Architect in progress.", match: "Core platform for this role; actively building AWS depth through hands-on Cloud Quest labs." },
+      "EC2": { desc: "Provisioned and managed virtual compute instances in Cloud Quest labs.", match: "Compute foundation for the cloud-native workloads this role designs and scales." },
+      "S3": { desc: "Object storage for static assets and data across Cloud Quest scenarios.", match: "Object storage underpinning cloud-native and POC architectures." },
+      "VPC": { desc: "Designed isolated networks with subnets, route tables, and gateways.", match: "Covers the 'solid understanding of networking' requirement." },
+      "IAM": { desc: "Configured least-privilege roles and policies for secure access.", match: "Maps to the required IAM and security understanding in AWS." },
+      "Lambda": { desc: "Built event-driven serverless functions — mirrors my Azure Functions work.", match: "Serverless, event-driven compute for cloud-native, microservices-style workloads." },
+      "RDS": { desc: "Managed relational databases in the cloud.", match: "" },
+      "DynamoDB": { desc: "Worked with NoSQL key-value storage for scalable applications.", match: "NoSQL data layer for decoupled, microservices architectures." },
+      "Route 53": { desc: "DNS routing and health checks.", match: "" },
+      "CloudFront": { desc: "CDN delivery for low-latency content.", match: "" },
+      "Auto Scaling": { desc: "Scaled compute automatically to match demand.", match: "Meets the scalability and performance best-practice requirements." },
+      "ELB": { desc: "Distributed traffic across instances for availability.", match: "Load balancing for scalable, highly available services." },
+      "SNS": { desc: "Pub/sub notifications for decoupled messaging.", match: "Event/pub-sub messaging for decoupled microservices." },
+      "SQS": { desc: "Message queues for decoupling and buffering workloads.", match: "Queue-based decoupling for resilient microservices." },
+      "CloudWatch": { desc: "Monitoring, metrics, and alarms — pairs with my NOC surveillance background.", match: "Monitoring and observability called out in the requirements." },
+      "CloudFormation": { desc: "Infrastructure as code for repeatable deployments.", match: "Infrastructure as Code — one of the two IaC tools the role names, alongside Terraform." },
+
+      // Data & Reporting
+      "SQL": { desc: "Query and consolidate hub, node, and device data across multiple systems.", match: "" },
+      "T-SQL": { desc: "Wrote the Remedy (NOC_APPS) query joining hubs, subcounts, and equipment with FOR XML aggregation.", match: "" },
+      "pandas": { desc: "Core of the Hub Intel pipeline — merge, match, and reshape multi-source data.", match: "" },
+      "openpyxl": { desc: "Generate the consolidated CMDB workbook with formatted Excel tables.", match: "" },
+      "ETL / Data Pipelines": { desc: "Consolidated 3,916 hub records from 6 sources into one searchable dataset.", match: "" },
+      "Data Modeling": { desc: "Designed the 26-column CMDB schema, mapping each field to its source system.", match: "" },
+      "CMDB": { desc: "Built and maintain the consolidated configuration/asset database for hub sites.", match: "" },
+      "Power BI": { desc: "Executive reporting and trend dashboards.", match: "" },
+      "Tableau": { desc: "Data analytics and visualization (Udemy-certified).", match: "" },
+      "Excel": { desc: "Advanced reporting, macros, and data preparation.", match: "" },
+      "Access": { desc: "Relational lookups and departmental data tools.", match: "" },
+      "Executive Reporting": { desc: "Monthly leadership reporting and year-over-year trend analysis.", match: "" },
+
+      // Operations & Process
+      "ITIL Framework": { desc: "Change, incident, and problem practices applied daily on a large-scale network.", match: "" },
+      "Change Management": { desc: "Review 1,000+ planned maintenance changes a year to prevent self-induced outages.", match: "" },
+      "Incident Management": { desc: "Led outage bridges and coordinated multi-team responses in the NOC.", match: "Production-operations experience for keeping scalable systems reliable." },
+      "Problem Management": { desc: "Root-cause recurring issues and drive preventative fixes.", match: "" },
+      "Root Cause Analysis": { desc: "Investigate alarms and defects to eliminate repeat impact.", match: "Supports production-readiness and the operational guidelines this role documents." },
+      "Network Surveillance": { desc: "Monitored VoIP/HSD/Video events with Netcool and Remedy.", match: "" },
+      "Method of Procedure": { desc: "Authored MOP templates and process docs across 7 verticals.", match: "" },
+      "Compliance & Risk": { desc: "Validate scope and dependencies to reduce change risk.", match: "Aligns with delivering secure, best-practice architectures." },
+
+      // Platforms & Tools
+      "Microsoft 365": { desc: "Day-to-day platform for automation across SharePoint, Power Platform, and Graph.", match: "" },
+      "Azure": { desc: "Serverless functions and cloud identity via app registrations and certificates.", match: "Cross-cloud serverless and identity experience that transfers to AWS." },
+      "SharePoint Online": { desc: "Hosts the Hub Intel data source and the Visio map library.", match: "" },
+      "Visio": { desc: "Parse .vsdx network maps to extract CLLIs and link topology to hubs.", match: "Supports the 'document architectures and patterns' responsibility." },
+      "GitLab": { desc: "Source control and CI/CD for the Hub Intel projects.", match: "CI/CD platform experience for building and shipping applications." },
+      "BMC Remedy": { desc: "Source of hub/equipment data and the change ticketing system.", match: "" },
+      "Jira": { desc: "Issue and work tracking.", match: "" },
+      "Netcool": { desc: "Network event monitoring in the NOC.", match: "" },
+      "PowerPoint": { desc: "Executive presentations, including the Hub Intel rollout deck.", match: "" }
+    };
+
+    (function () {
+      var tip = document.getElementById('skill-tip');
+      var note = document.getElementById('tailoredNote');
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+
+      if (TARGET && TARGET.role) {
+        note.textContent = 'Tailored for ' + TARGET.role +
+          (TARGET.company ? ' @ ' + TARGET.company : '') +
+          ' \u2014 hover a skill to see how it maps to this role.';
+        note.classList.add('show');
+      }
+
+      function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+      chips.forEach(function (chip) {
+        var key = chip.textContent.trim();
+        var meta = skillMeta[key];
+        if (!meta) return;
+        chip.classList.add('has-info');
+        chip.setAttribute('tabindex', '0');
+        chip.setAttribute('aria-label', key + '. ' + meta.desc + (meta.match ? ' Relevant to this role: ' + meta.match : ''));
+        if (meta.match) chip.classList.add('matched');
+        chip._meta = meta;
+        chip._key = key;
+
+        chip.addEventListener('mouseenter', function () { showTip(chip); });
+        chip.addEventListener('mouseleave', hideTip);
+        chip.addEventListener('focus', function () { showTip(chip); });
+        chip.addEventListener('blur', hideTip);
+        chip.addEventListener('click', function (e) { e.stopPropagation(); toggleTip(chip); });
+      });
+
+      document.addEventListener('click', hideTip);
+      window.addEventListener('scroll', hideTip, true);
+      window.addEventListener('resize', hideTip);
+
+      function content(meta, key) {
+        var html = '<div class="tip-title">' + esc(key) + '</div>' +
+                   '<div class="tip-desc">' + esc(meta.desc) + '</div>';
+        if (meta.match) {
+          html += '<div class="tip-match"><span class="lbl">Why it fits this role</span>' + esc(meta.match) + '</div>';
+        }
+        return html;
+      }
+
+      function showTip(chip) {
+        if (!chip._meta) return;
+        tip.innerHTML = content(chip._meta, chip._key);
+        tip.classList.add('show');
+        tip.setAttribute('aria-hidden', 'false');
+        tip._for = chip;
+        position(chip);
+      }
+
+      function toggleTip(chip) {
+        if (tip.classList.contains('show') && tip._for === chip) hideTip();
+        else showTip(chip);
+      }
+
+      function hideTip() {
+        tip.classList.remove('show');
+        tip.setAttribute('aria-hidden', 'true');
+        tip._for = null;
+      }
+
+      function position(chip) {
+        var r = chip.getBoundingClientRect();
+        var tr = tip.getBoundingClientRect();
+        var m = 8;
+        var left = r.left + r.width / 2 - tr.width / 2;
+        left = Math.max(m, Math.min(left, window.innerWidth - tr.width - m));
+        var top = r.top - tr.height - m;
+        if (top < m) top = r.bottom + m; // flip below if no room above
+        tip.style.left = left + 'px';
+        tip.style.top = top + 'px';
+      }
     })();
   </script>
 </body>

@@ -144,7 +144,7 @@ summary.add_run(
 section_heading("Core Skills")
 
 skill_groups = [
-    ("Automation & Development", "Python  \u00b7  Power Automate  \u00b7  Power Apps  \u00b7  VBA / Excel Macros  \u00b7  SharePoint  \u00b7  CI/CD & GitLab Runners"),
+    ("Automation & Development", "Python  \u00b7  Power Automate  \u00b7  Power Apps  \u00b7  VBA / Excel Macros  \u00b7  C# / Azure Functions  \u00b7  SharePoint  \u00b7  CI/CD & GitLab Runners"),
     ("Data & Reporting", "SQL  \u00b7  Power BI  \u00b7  Tableau  \u00b7  Microsoft Excel & Access  \u00b7  Analytical & Executive Reporting"),
     ("Operations & Process", "ITIL Framework  \u00b7  Change & Incident Management  \u00b7  Network Surveillance  \u00b7  Method of Procedure (MOP)  \u00b7  Compliance & Risk"),
     ("Platforms & Tools", "Microsoft 365  \u00b7  BMC Remedy  \u00b7  Jira  \u00b7  Netcool  \u00b7  PowerPoint"),
@@ -230,6 +230,15 @@ def project(title, tech, lines):
         bullet(line)
 
 
+project(
+    "CM Hub Intel Tool", "Python, pandas, Power Apps, Power Automate, SharePoint, C# / Azure Functions, GitLab CI/CD",
+    [
+        "Built an end-to-end network intelligence platform that consolidates 3,916 hub records from 6 source systems, giving NOC and Change Management teams instant search access to transport maps, backbone dependencies, and risk indicators.",
+        "Engineered a Python pipeline that parses 100+ Visio network maps and links them to hubs at a 96% match rate, replacing manual searches through a 100+ page PDF and cutting hub lookups from minutes to seconds.",
+        "Flagged 167 backbone (BBoC) hubs and 108 single-threaded sites with automated warning banners, surfacing outage blast radius at the point of CRQ review to prevent service-impacting changes.",
+        "Delivered the tool through a Power Apps front end backed by a SharePoint list, with a C# Azure Function automating Visio map splitting and a GitLab CI/CD pipeline.",
+    ],
+)
 project(
     "STL Hub 72-Hour Buffer Analyzer", "Python, pandas, Excel, OneDrive",
     [

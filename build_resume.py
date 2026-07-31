@@ -187,7 +187,7 @@ def job(title, company, location, dates):
     ccr.font.color.rgb = ACCENT
 
 
-job("Systems Engineer II \u2014 Change Management & Automation", "Spectrum (Charter Communications)", "Town and Country, MO", "2018 \u2013 Present")
+job("Change Analyst II \u2014 Change Management & Automation", "Spectrum (Charter Communications)", "Town and Country, MO", "2018 \u2013 Present")
 bullet("Review 1,000+ planned maintenance changes annually to validate scope, verify device relationships and impacts, and prevent self-induced subscriber outages.")
 bullet("Approved 25% of all Inside Plant changes in 2022 \u2014 the company's largest organization \u2014 with 0 administrative errors and 0 break/fix incidents on approved tickets.")
 bullet("Received the \u201cAbove and Beyond\u201d award (Q3 2022) for rebuilding and automating department-wide daily, monthly, and yearly reporting.")

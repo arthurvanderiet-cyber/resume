@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Art Van de Riet — Systems Engineer</title>
+<meta name="description" content="Art Van de Riet — Systems Engineer specializing in automation and change management with Python, Microsoft Power Platform, and SQL." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1f2a44;
+    --accent: #2e5e8c;
+    --accent-light: #eaf1f8;
+    --dark: #222;
+    --gray: #555;
+    --line: #e2e6ec;
+    --bg: #f4f6f9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 860px;
+    margin: 32px auto;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(31, 42, 68, 0.10);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, #2b3b5e 100%);
+    color: #fff;
+    padding: 40px 48px 34px;
+  }
+  header h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.05;
+  }
+  header .role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #a9c4e0;
+    margin-top: 6px;
+  }
+  .contact {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    font-size: 0.9rem;
+  }
+  .contact a, .contact span { color: #d7e2ef; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+  .contact a:hover { color: #fff; text-decoration: underline; }
+  .actions { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .12s ease, background .12s ease;
+  }
+  .btn-primary { background: #fff; color: var(--navy); }
+  .btn-primary:hover { transform: translateY(-1px); background: #eaf1f8; }
+  .btn-ghost { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.22); }
+
+  /* Body */
+  main { padding: 34px 48px 44px; }
+  section { margin-bottom: 30px; }
+  h2 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+  .summary { color: #333; font-size: 0.98rem; }
+
+  /* Skills */
+  .skill-row { margin-bottom: 9px; font-size: 0.92rem; }
+  .skill-row .label { font-weight: 700; color: var(--accent); }
+
+  /* Experience */
+  .job { margin-bottom: 20px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+  .job-title { font-weight: 700; color: var(--navy); font-size: 1.02rem; }
+  .job-dates { font-size: 0.82rem; color: var(--gray); font-weight: 600; white-space: nowrap; }
+  .job-meta { font-style: italic; color: var(--accent); font-size: 0.88rem; margin: 2px 0 8px; }
+  ul { list-style: none; }
+  .job li, .project li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    font-size: 0.92rem;
+    color: #333;
+  }
+  .job li::before, .project li::before {
+    content: '';
+    position: absolute;
+    left: 2px; top: 9px;
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* Projects */
+  .project { margin-bottom: 18px; padding: 14px 16px; background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 6px; }
+  .project h3 { font-size: 0.98rem; color: var(--navy); }
+  .project .tech { font-style: italic; color: var(--gray); font-size: 0.8rem; font-weight: 500; margin: 2px 0 8px; }
+
+  /* Education */
+  .edu-item { margin-bottom: 6px; }
+  .edu-item .deg { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .edu-item .sub { font-style: italic; color: var(--gray); font-size: 0.85rem; }
+  .cert { font-size: 0.9rem; margin-top: 8px; }
+  .cert .label { font-weight: 700; color: var(--accent); }
+
+  footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--gray); border-top: 1px solid var(--line); }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .page { margin: 0; border-radius: 0; }
+    header { padding: 28px 24px; }
+    header h1 { font-size: 2rem; }
+    main { padding: 24px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; }
+    .actions { display: none; }
+    header { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .project { background: var(--accent-light) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Art Van de Riet</h1>
+      <div class="role">Systems Engineer &nbsp;|&nbsp; Automation &amp; Change Management</div>
+      <div class="contact">
+        <span>&#128205; Imperial, MO</span>
+        <a href="tel:+13145748894">&#128222; 314-574-8894</a>
+        <a href="mailto:Arthur.vanderiet@gmail.com">&#9993; Arthur.vanderiet@gmail.com</a>
+        <a href="https://www.linkedin.com/in/art-van-de-riet-75188155" target="_blank" rel="noopener">&#128188; LinkedIn</a>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="Art_Van_de_Riet_Resume_2026.pdf" target="_blank" rel="noopener">Download PDF</a>
+        <a class="btn btn-ghost" href="mailto:Arthur.vanderiet@gmail.com">Get in touch</a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Professional Summary</h2>
+        <p class="summary">Results-driven systems engineer with 10+ years of experience spanning network operations, service delivery, and change management. Specializes in building automation and reporting solutions with Python, the Microsoft Power Platform, and SQL that eliminate process bottlenecks, prevent service-impacting outages, and give technical teams faster, data-driven decisions. Recognized for delivering production-ready tools, high-impact executive reporting, and process improvements that protect large-scale networks.</p>
+      </section>
+
+      <section>
+        <h2>Core Skills</h2>
+        <div class="skill-row"><span class="label">Automation &amp; Development:</span> Python &middot; Power Automate &middot; Power Apps &middot; VBA / Excel Macros &middot; SharePoint &middot; CI/CD &amp; GitLab Runners</div>
+        <div class="skill-row"><span class="label">Data &amp; Reporting:</span> SQL &middot; Power BI &middot; Tableau &middot; Microsoft Excel &amp; Access &middot; Analytical &amp; Executive Reporting</div>
+        <div class="skill-row"><span class="label">Operations &amp; Process:</span> ITIL Framework &middot; Change &amp; Incident Management &middot; Network Surveillance &middot; Method of Procedure (MOP) &middot; Compliance &amp; Risk</div>
+        <div class="skill-row"><span class="label">Platforms &amp; Tools:</span> Microsoft 365 &middot; BMC Remedy &middot; Jira &middot; Netcool &middot; PowerPoint</div>
+      </section>
+
+      <section>
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Systems Engineer II &mdash; Change Management &amp; Automation</span>
+            <span class="job-dates">2018 &ndash; Present</span>
+          </div>
+          <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; Town and Country, MO</div>
+          <ul>
+            <li>Review 1,000+ planned maintenance changes annually to validate scope, verify device relationships and impacts, and prevent self-induced subscriber outages.</li>
+            <li>Approved 25% of all Inside Plant changes in 2022 &mdash; the company's largest organization &mdash; with 0 administrative errors and 0 break/fix incidents on approved tickets.</li>
+            <li>Received the &ldquo;Above and Beyond&rdquo; award (Q3 2022) for rebuilding and automating department-wide daily, monthly, and yearly reporting.</li>
+            <li>Build and present monthly executive reporting and year-over-year trend analysis that guides leadership planning and improves department efficiency.</li>
+            <li>Designed a standardized messaging application (VBA/Excel) that streamlined maintenance communications and cut email preparation time.</li>
+            <li>Authored method-of-procedure templates and process documentation across 7 verticals, improving CRQ accuracy and reducing escalations with Inside Plant leadership.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Associate Network Operations</span>
+            <span class="job-dates">2016 &ndash; 2018</span>
+          </div>
+          <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; Town and Country, MO</div>
+          <ul>
+            <li>Monitored network events with Netcool and BMC Remedy to triage, escalate, and resolve critical outages across VoIP, HSD, and Video services.</li>
+            <li>Led incident management conference calls, coordinated multi-team responses, and delegated efforts to reduce average resolution time.</li>
+            <li>Proactively investigated alarms to minimize customer impact and helped launch the new Remedy ticketing platform, training peers on adoption.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Service Delivery Coordinator</span>
+            <span class="job-dates">2015 &ndash; 2016</span>
+          </div>
+          <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; St. Louis, MO</div>
+          <ul>
+            <li>Resolved provisioning and billing errors in CSG systems, specializing in E911 and number porting accuracy.</li>
+            <li>Identified and corrected recurring order-entry issues, preventing thousands in potential billing losses.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-title">Telephone Service Advisor I / II / Sr. Advisor</span>
+            <span class="job-dates">2013 &ndash; 2015</span>
+          </div>
+          <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; St. Louis, MO</div>
+          <ul>
+            <li>Performed complex troubleshooting across phone, internet, and cable services while consistently meeting leadership performance metrics.</li>
+            <li>Served as floor support for the supervisor and mentored new hires, fostering a collaborative, high-performing team environment.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Key Projects</h2>
+
+        <div class="project">
+          <h3>STL Hub 72-Hour Buffer Analyzer</h3>
+          <div class="tech">Python &middot; pandas &middot; Excel &middot; OneDrive</div>
+          <ul>
+            <li>Built a Python tool that monitors 20 St. Louis hub locations to detect and prevent maintenance conflicts using a 72-hour buffer rule.</li>
+            <li>Auto-detects Excel files from OneDrive and generates color-coded reports flagging buffer violations, active/expired buffers, and compliant tasks.</li>
+            <li>Groups conflicting work into Multi-Task Resolution (MTR) groups and produces automated reschedule recommendations, with batch and drag-and-drop launchers.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <h3>Conflict Assessment &amp; Notification System</h3>
+          <div class="tech">Power Automate &middot; Power Apps &middot; SharePoint &middot; Excel</div>
+          <ul>
+            <li>Developed an automated workflow that detects CRQs with overlapping transport paths and stores grouped conflict records with dynamic Conflict IDs.</li>
+            <li>Delivered a Power Apps dashboard letting stakeholders view grouped records, mark resolutions, and track live status, with automated email alerts to coordinators.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <h3>Transport Lookup Application</h3>
+          <div class="tech">SharePoint &middot; Power Automate &middot; Access</div>
+          <ul>
+            <li>Designed a SharePoint-integrated lookup system that identifies CRQs referencing the same transport map, enabling technicians to self-serve conflict insights and cutting turnaround time.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <h3>Centralized Communication Application</h3>
+          <div class="tech">VBA &middot; Excel</div>
+          <ul>
+            <li>Created a centralized tool that standardized maintenance communication verbiage, improving consistency and reducing time spent on outbound notifications.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education &amp; Certifications</h2>
+        <div class="edu-item">
+          <div class="deg">Associate of Applied Science, Information Technology &amp; Computer Network Systems</div>
+          <div class="sub">ITT Technical Institute, Arnold, MO &middot; GPA 3.2 &middot; 2011&ndash;2013</div>
+        </div>
+        <div class="cert"><span class="label">SCTE Certifications:</span> DOCSIS Engineering Professional, Broadband Telecommunications Specialist, Understanding Cable Technology.</div>
+        <div class="cert"><span class="label">Professional Development (Udemy):</span> Python (Beginner to Advanced), SQL, Microsoft Access (Beginner to Advanced), Tableau Data Analytics, Analytics Engineering Bootcamp.</div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> Art Van de Riet &middot; Built with HTML &amp; hosted on GitHub Pages
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

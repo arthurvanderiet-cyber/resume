@@ -2,10 +2,14 @@
 
 Systems Engineer specializing in automation and change management (Python, Microsoft Power Platform, SQL).
 
+**Live site:** https://arthurvanderiet-cyber.github.io/resume/
+
 ## Files
+- **index.html** — responsive, print-friendly web resume (hosted on GitHub Pages).
 - **Art_Van_de_Riet_Resume_2026.pdf** — polished resume, ready to send.
 - **Art_Van_de_Riet_Resume_2026.docx** — editable Word version.
-- **build_resume.py** — script that generates the resume with [python-docx](https://python-docx.readthedocs.io/).
+- **build_resume.py** — generates the resume document with [python-docx](https://python-docx.readthedocs.io/).
+- **generate_og.py** — generates `og-image.png`, the social preview card, with [Pillow](https://pillow.readthedocs.io/).
 
 ## Regenerating the resume
 ```bash

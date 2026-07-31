@@ -3,8 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Art Van de Riet — Systems Engineer</title>
-<meta name="description" content="Art Van de Riet — Systems Engineer specializing in automation and change management with Python, Microsoft Power Platform, and SQL." />
+<title>Art Van de Riet — Systems Engineer | Automation &amp; Change Management</title>
+<meta name="description" content="Art Van de Riet — Systems Engineer with 10+ years in network operations and change management, specializing in automation with Python, Microsoft Power Platform, and SQL." />
+
+<!-- Favicon: "AV" monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f2a44'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3EAV%3C/text%3E%3C/svg%3E" />
+
+<!-- Open Graph (LinkedIn, Facebook, iMessage) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Art Van de Riet — Systems Engineer | Automation &amp; Change Management" />
+<meta property="og:description" content="10+ years in network operations and change management. Builds automation and reporting solutions with Python, Microsoft Power Platform, and SQL." />
+<meta property="og:url" content="https://arthurvanderiet-cyber.github.io/resume/" />
+<meta property="og:image" content="https://arthurvanderiet-cyber.github.io/resume/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Art Van de Riet — Resume" />
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Art Van de Riet — Systems Engineer" />
+<meta name="twitter:description" content="10+ years in network operations and change management. Automation with Python, Microsoft Power Platform, and SQL." />
+<meta name="twitter:image" content="https://arthurvanderiet-cyber.github.io/resume/og-image.png" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -133,12 +153,51 @@
 
   footer { text-align: center; padding: 20px; font-size: 0.8rem; color: var(--gray); border-top: 1px solid var(--line); }
 
+  /* Highlights strip */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .highlight {
+    padding: 16px 12px;
+    text-align: center;
+    color: #fff;
+    border-left: 1px solid rgba(255,255,255,0.10);
+  }
+  .highlight:first-child { border-left: none; }
+  .highlight .num { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1.1; }
+  .highlight .cap { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: #a9c4e0; margin-top: 4px; }
+
+  /* Section heading icons */
+  h2 { display: flex; align-items: center; gap: 9px; }
+  h2 svg { width: 17px; height: 17px; flex: none; stroke: var(--accent); }
+
+  /* Skill chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .chip {
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid #d3e0ee;
+    border-radius: 999px;
+    padding: 5px 13px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .skill-block { margin-bottom: 14px; }
+  .skill-block .cat { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--navy); margin-bottom: 7px; }
+
   /* Responsive */
   @media (max-width: 640px) {
     .page { margin: 0; border-radius: 0; }
     header { padding: 28px 24px; }
     header h1 { font-size: 2rem; }
     main { padding: 24px; }
+    .highlights { grid-template-columns: repeat(2, 1fr); }
+    .highlight:nth-child(3) { border-left: none; }
+    .highlight:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.10); }
   }
 
   /* Print */
@@ -168,22 +227,50 @@
       </div>
     </header>
 
+    <div class="highlights">
+      <div class="highlight"><span class="num">10+</span><span class="cap">Years Experience</span></div>
+      <div class="highlight"><span class="num">1,000+</span><span class="cap">Changes Reviewed / Yr</span></div>
+      <div class="highlight"><span class="num">0</span><span class="cap">Error Rate on Approvals</span></div>
+      <div class="highlight"><span class="num">4</span><span class="cap">Automation Tools Shipped</span></div>
+    </div>
+
     <main>
       <section>
-        <h2>Professional Summary</h2>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg>Professional Summary</h2>
         <p class="summary">Results-driven systems engineer with 10+ years of experience spanning network operations, service delivery, and change management. Specializes in building automation and reporting solutions with Python, the Microsoft Power Platform, and SQL that eliminate process bottlenecks, prevent service-impacting outages, and give technical teams faster, data-driven decisions. Recognized for delivering production-ready tools, high-impact executive reporting, and process improvements that protect large-scale networks.</p>
       </section>
 
       <section>
-        <h2>Core Skills</h2>
-        <div class="skill-row"><span class="label">Automation &amp; Development:</span> Python &middot; Power Automate &middot; Power Apps &middot; VBA / Excel Macros &middot; SharePoint &middot; CI/CD &amp; GitLab Runners</div>
-        <div class="skill-row"><span class="label">Data &amp; Reporting:</span> SQL &middot; Power BI &middot; Tableau &middot; Microsoft Excel &amp; Access &middot; Analytical &amp; Executive Reporting</div>
-        <div class="skill-row"><span class="label">Operations &amp; Process:</span> ITIL Framework &middot; Change &amp; Incident Management &middot; Network Surveillance &middot; Method of Procedure (MOP) &middot; Compliance &amp; Risk</div>
-        <div class="skill-row"><span class="label">Platforms &amp; Tools:</span> Microsoft 365 &middot; BMC Remedy &middot; Jira &middot; Netcool &middot; PowerPoint</div>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>Core Skills</h2>
+
+        <div class="skill-block">
+          <div class="cat">Automation &amp; Development</div>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Power Automate</span><span class="chip">Power Apps</span><span class="chip">VBA / Excel Macros</span><span class="chip">SharePoint</span><span class="chip">CI/CD &amp; GitLab Runners</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="cat">Data &amp; Reporting</div>
+          <div class="chips">
+            <span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Access</span><span class="chip">Executive Reporting</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="cat">Operations &amp; Process</div>
+          <div class="chips">
+            <span class="chip">ITIL Framework</span><span class="chip">Change Management</span><span class="chip">Incident Management</span><span class="chip">Network Surveillance</span><span class="chip">Method of Procedure</span><span class="chip">Compliance &amp; Risk</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="cat">Platforms &amp; Tools</div>
+          <div class="chips">
+            <span class="chip">Microsoft 365</span><span class="chip">BMC Remedy</span><span class="chip">Jira</span><span class="chip">Netcool</span><span class="chip">PowerPoint</span>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h2>Professional Experience</h2>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Professional Experience</h2>
 
         <div class="job">
           <div class="job-head">
@@ -240,7 +327,7 @@
       </section>
 
       <section>
-        <h2>Key Projects</h2>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Key Projects</h2>
 
         <div class="project">
           <h3>STL Hub 72-Hour Buffer Analyzer</h3>
@@ -279,7 +366,7 @@
       </section>
 
       <section>
-        <h2>Education &amp; Certifications</h2>
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg>Education &amp; Certifications</h2>
         <div class="edu-item">
           <div class="deg">Associate of Applied Science, Information Technology &amp; Computer Network Systems</div>
           <div class="sub">ITT Technical Institute, Arnold, MO &middot; GPA 3.2 &middot; 2011&ndash;2013</div>

@@ -287,8 +287,23 @@
 
         <div class="job">
           <div class="job-head">
+            <span class="job-title">Systems Engineer II &mdash; Automation &amp; Network Intelligence</span>
+            <span class="job-dates">Apr 2026 &ndash; Present</span>
+          </div>
+          <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; Town and Country, MO</div>
+          <ul>
+            <li>Architected and shipped the CM Hub Intel Tool, an end-to-end network intelligence platform that consolidates 3,916 hub records from 6 source systems into a single searchable CMDB used daily by NOC and Change Management teams.</li>
+            <li>Wrote T-SQL against the Remedy (NOC_APPS) database to pull hub, node, and device (CMTS/OLT/RDM) data, then built a Python (pandas / openpyxl) pipeline that merges optical transport, single-threaded, and backbone sources into one dataset.</li>
+            <li>Developed a two-pass matching engine (exact + vendor-locked fuzzy matching) that links 100+ Visio transport maps to hubs at a 96% match rate, and parsed Visio .vsdx XML to flag 167 backbone (BBoC) hubs and 108 single-threaded sites.</li>
+            <li>Built a C# / .NET Microsoft Graph API updater with certificate-based auth, batched parallel writes, and exponential-backoff retry that replaced a 2-hour Power Automate flow with a 5&ndash;10 minute upload &mdash; cutting the full update cycle from ~2.5 hours to ~20 minutes.</li>
+            <li>Delivered the tool through a Power Apps front end on a SharePoint list, added a serverless C# Azure Function for automated Visio splitting, and set up GitLab CI/CD with property-based (Hypothesis) tests to protect data-integrity invariants.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
             <span class="job-title">Change Analyst II &mdash; Change Management &amp; Automation</span>
-            <span class="job-dates">2018 &ndash; Present</span>
+            <span class="job-dates">2018 &ndash; Apr 2026</span>
           </div>
           <div class="job-meta">Spectrum (Charter Communications) &nbsp;|&nbsp; Town and Country, MO</div>
           <ul>

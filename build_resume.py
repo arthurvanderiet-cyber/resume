@@ -187,7 +187,14 @@ def job(title, company, location, dates):
     ccr.font.color.rgb = ACCENT
 
 
-job("Change Analyst II \u2014 Change Management & Automation", "Spectrum (Charter Communications)", "Town and Country, MO", "2018 \u2013 Present")
+job("Systems Engineer II \u2014 Automation & Network Intelligence", "Spectrum (Charter Communications)", "Town and Country, MO", "Apr 2026 \u2013 Present")
+bullet("Architected and shipped the CM Hub Intel Tool, an end-to-end network intelligence platform that consolidates 3,916 hub records from 6 source systems into a single searchable CMDB used daily by NOC and Change Management teams.")
+bullet("Wrote T-SQL against the Remedy (NOC_APPS) database to pull hub, node, and device (CMTS/OLT/RDM) data, then built a Python (pandas / openpyxl) pipeline that merges optical transport, single-threaded, and backbone sources into one dataset.")
+bullet("Developed a two-pass matching engine (exact + vendor-locked fuzzy matching) that links 100+ Visio transport maps to hubs at a 96% match rate, and parsed Visio .vsdx XML to flag 167 backbone (BBoC) hubs and 108 single-threaded sites.")
+bullet("Built a C# / .NET Microsoft Graph API updater with certificate-based auth, batched parallel writes, and exponential-backoff retry that replaced a 2-hour Power Automate flow with a 5\u201310 minute upload \u2014 cutting the full update cycle from ~2.5 hours to ~20 minutes.")
+bullet("Delivered the tool through a Power Apps front end on a SharePoint list, added a serverless C# Azure Function for automated Visio splitting, and set up GitLab CI/CD with property-based (Hypothesis) tests to protect data-integrity invariants.")
+
+job("Change Analyst II \u2014 Change Management & Automation", "Spectrum (Charter Communications)", "Town and Country, MO", "2018 \u2013 Apr 2026")
 bullet("Review 1,000+ planned maintenance changes annually to validate scope, verify device relationships and impacts, and prevent self-induced subscriber outages.")
 bullet("Approved 25% of all Inside Plant changes in 2022 \u2014 the company's largest organization \u2014 with 0 administrative errors and 0 break/fix incidents on approved tickets.")
 bullet("Received the \u201cAbove and Beyond\u201d award (Q3 2022) for rebuilding and automating department-wide daily, monthly, and yearly reporting.")

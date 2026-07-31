@@ -144,11 +144,11 @@ summary.add_run(
 section_heading("Core Skills")
 
 skill_groups = [
-    ("Automation & Development", "Python  \u00b7  Power Automate  \u00b7  Power Apps  \u00b7  VBA / Excel Macros  \u00b7  C# / Azure Functions  \u00b7  SharePoint  \u00b7  CI/CD & GitLab Runners"),
-    ("Cloud & AWS", "AWS  \u00b7  EC2  \u00b7  S3  \u00b7  VPC  \u00b7  IAM  \u00b7  Lambda  \u00b7  RDS  \u00b7  DynamoDB  \u00b7  CloudWatch  \u00b7  CloudFormation"),
-    ("Data & Reporting", "SQL  \u00b7  Power BI  \u00b7  Tableau  \u00b7  Microsoft Excel & Access  \u00b7  Analytical & Executive Reporting"),
-    ("Operations & Process", "ITIL Framework  \u00b7  Change & Incident Management  \u00b7  Network Surveillance  \u00b7  Method of Procedure (MOP)  \u00b7  Compliance & Risk"),
-    ("Platforms & Tools", "Microsoft 365  \u00b7  BMC Remedy  \u00b7  Jira  \u00b7  Netcool  \u00b7  PowerPoint"),
+    ("Automation & Development", "Python  \u00b7  Power Automate  \u00b7  Power Apps  \u00b7  VBA / Excel Macros  \u00b7  C# / .NET  \u00b7  Azure Functions  \u00b7  Microsoft Graph API  \u00b7  REST APIs  \u00b7  SharePoint  \u00b7  Git  \u00b7  CI/CD & GitLab Runners  \u00b7  pytest"),
+    ("Cloud & AWS", "AWS  \u00b7  EC2  \u00b7  S3  \u00b7  VPC  \u00b7  IAM  \u00b7  Lambda  \u00b7  RDS  \u00b7  DynamoDB  \u00b7  Route 53  \u00b7  CloudFront  \u00b7  Auto Scaling  \u00b7  ELB  \u00b7  SNS  \u00b7  SQS  \u00b7  CloudWatch  \u00b7  CloudFormation"),
+    ("Data & Reporting", "SQL  \u00b7  T-SQL  \u00b7  pandas  \u00b7  openpyxl  \u00b7  ETL / Data Pipelines  \u00b7  Data Modeling  \u00b7  CMDB  \u00b7  Power BI  \u00b7  Tableau  \u00b7  Microsoft Excel & Access  \u00b7  Executive Reporting"),
+    ("Operations & Process", "ITIL Framework  \u00b7  Change Management  \u00b7  Incident Management  \u00b7  Problem Management  \u00b7  Root Cause Analysis  \u00b7  Network Surveillance  \u00b7  Method of Procedure (MOP)  \u00b7  Compliance & Risk"),
+    ("Platforms & Tools", "Microsoft 365  \u00b7  Azure  \u00b7  SharePoint Online  \u00b7  Visio  \u00b7  GitLab  \u00b7  BMC Remedy  \u00b7  Jira  \u00b7  Netcool  \u00b7  PowerPoint"),
 ]
 for label, items in skill_groups:
     p = doc.add_paragraph()

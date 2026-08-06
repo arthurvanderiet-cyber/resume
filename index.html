@@ -316,7 +316,7 @@
     <main>
       <section id="summary">
         <h2><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8M8 9h2"/></svg>Professional Summary</h2>
-        <p class="summary">Results-driven systems engineer with 10+ years of experience spanning network operations, service delivery, and change management. Specializes in building automation and reporting solutions with Python, the Microsoft Power Platform, and SQL that eliminate process bottlenecks, prevent service-impacting outages, and give technical teams faster, data-driven decisions. Recognized for delivering production-ready tools, high-impact executive reporting, and process improvements that protect large-scale networks.</p>
+        <p class="summary">Automation engineer and emerging technical leader with 10+ years of experience building and owning platforms that operational teams depend on daily. Designs and ships end-to-end automation solutions — from Python data pipelines and CI/CD-deployed web tools to Power Platform workflows and C#/.NET API integrations — that eliminate manual toil, surface actionable data, and protect large-scale networks from self-induced outages. Proven track record of mentoring peers, building executive-level reporting, and driving process improvements across cross-functional teams. Combines deep hands-on technical skills with the communication and organizational discipline to lead a team, own a product backlog, and translate platform capabilities into concrete value for internal customers.</p>
       </section>
 
       <section id="skills">
@@ -327,7 +327,7 @@
         <div class="skill-block">
           <div class="cat">Automation &amp; Development</div>
           <div class="chips">
-            <span class="chip">Python</span><span class="chip">Power Automate</span><span class="chip">Power Apps</span><span class="chip">VBA / Excel Macros</span><span class="chip">C# / .NET</span><span class="chip">Azure Functions</span><span class="chip">Microsoft Graph API</span><span class="chip">REST APIs</span><span class="chip">SharePoint</span><span class="chip">Git</span><span class="chip">CI/CD &amp; GitLab Runners</span><span class="chip">pytest</span>
+            <span class="chip">Python</span><span class="chip">Power Automate</span><span class="chip">Power Apps</span><span class="chip">VBA / Excel Macros</span><span class="chip">C# / .NET</span><span class="chip">Azure Functions</span><span class="chip">Microsoft Graph API</span><span class="chip">REST APIs</span><span class="chip">SharePoint</span><span class="chip">Git</span><span class="chip">CI/CD &amp; GitLab Runners</span><span class="chip">Ansible / Puppet (familiar)</span><span class="chip">pytest</span>
           </div>
         </div>
         <div class="skill-block">
@@ -345,7 +345,7 @@
         <div class="skill-block">
           <div class="cat">Operations &amp; Process</div>
           <div class="chips">
-            <span class="chip">ITIL Framework</span><span class="chip">Change Management</span><span class="chip">Incident Management</span><span class="chip">Problem Management</span><span class="chip">Root Cause Analysis</span><span class="chip">Network Surveillance</span><span class="chip">Method of Procedure</span><span class="chip">Compliance &amp; Risk</span>
+            <span class="chip">ITIL Framework</span><span class="chip">Change Management</span><span class="chip">Incident Management</span><span class="chip">Problem Management</span><span class="chip">Root Cause Analysis</span><span class="chip">Network Surveillance</span><span class="chip">Method of Procedure</span><span class="chip">Backlog Management</span><span class="chip">Team Leadership &amp; Mentoring</span><span class="chip">Compliance &amp; Risk</span>
           </div>
         </div>
         <div class="skill-block">
@@ -383,10 +383,11 @@
           <ul>
             <li>Review 1,000+ planned maintenance changes annually to validate scope, verify device relationships and impacts, and prevent self-induced subscriber outages.</li>
             <li>Approved 25% of all Inside Plant changes in 2022 &mdash; the company's largest organization &mdash; with 0 administrative errors and 0 break/fix incidents on approved tickets.</li>
-            <li>Received the &ldquo;Above and Beyond&rdquo; award (Q3 2022) for rebuilding and automating department-wide daily, monthly, and yearly reporting.</li>
-            <li>Build and present monthly executive reporting and year-over-year trend analysis that guides leadership planning and improves department efficiency.</li>
-            <li>Designed a standardized messaging application (VBA/Excel) that streamlined maintenance communications and cut email preparation time.</li>
-            <li>Authored method-of-procedure templates and process documentation across 7 verticals, improving CRQ accuracy and reducing escalations with Inside Plant leadership.</li>
+            <li>Received the &ldquo;Above and Beyond&rdquo; award (Q3 2022) for rebuilding and automating department-wide daily, monthly, and yearly reporting used by leadership to plan and execute strategy.</li>
+            <li>Built and presented monthly executive reporting and year-over-year trend analysis; gathered and shaped metrics to surface improvement opportunities and guide short- and long-term team decisions.</li>
+            <li>Designed a standardized messaging application (VBA/Excel) that streamlined maintenance communications, cut email preparation time, and reduced process variation across 7 verticals.</li>
+            <li>Authored method-of-procedure templates and process documentation, ensuring all new processes were documented and adopted consistently across teams.</li>
+            <li>Informally mentored and coached peers on policy, tooling, and process; acted as a go-to resource for analysts navigating change review and CRQ accuracy — a role that consistently influenced team performance and reduced escalations.</li>
           </ul>
         </div>
 
@@ -540,75 +541,78 @@
     // skillMeta[skill].match = why it fits the target role (shown + highlights
     //                          the chip when a job description is loaded)
     // ============================================================
-    var TARGET = { role: "Site Reliability Engineer", company: "LSEG" };
+    var TARGET = { role: "Engineering Support & Automation Team Lead", company: "WWT" };
 
     var skillMeta = {
       // Automation & Development
-      "Python": { desc: "My primary automation language — powers the CM Hub Intel data pipeline (pandas/openpyxl) and the STL 72-Hour Buffer Analyzer.", match: "Automation and tooling to reduce manual work — the reliability-focused scripting this platform role values." },
-      "Power Automate": { desc: "Built flows that detect CRQ transport conflicts and drive automated email alerts to coordinators.", match: "Workflow automation that reduces repetitive operational tasks." },
-      "Power Apps": { desc: "Delivered the Hub Intel search app and a conflict-assessment dashboard used by NOC and Change Management teams.", match: "" },
+      "Python": { desc: "My primary automation language — powers the CM Hub Intel data pipeline (pandas/openpyxl) and the STL 72-Hour Buffer Analyzer.", match: "Core scripting language for building and reviewing automation — directly relevant to the team's Python/scripting work and the expectation of code-review capability." },
+      "Power Automate": { desc: "Built flows that detect CRQ transport conflicts and drive automated email alerts to coordinators.", match: "Workflow automation that reduces manual operational toil — aligns with the team's mission to reduce support burden for internal customers." },
+      "Power Apps": { desc: "Delivered the Hub Intel search app and a conflict-assessment dashboard used by NOC and Change Management teams.", match: "Internal-facing platform tools for operational teams — exactly the type of customer WWT's I&O engineering teams represent." },
       "VBA / Excel Macros": { desc: "Created a centralized maintenance-communication tool that standardized messaging and cut prep time.", match: "" },
-      "C# / .NET": { desc: "Wrote the Microsoft Graph API updater that syncs the consolidated CMDB to SharePoint in minutes.", match: "Building operational tooling, including a fault-tolerant service with retry/backoff." },
-      "Azure Functions": { desc: "Built a serverless C# function that auto-splits multi-page Visio network maps.", match: "Serverless automation for repeatable operational workflows." },
+      "C# / .NET": { desc: "Wrote the Microsoft Graph API updater that syncs the consolidated CMDB to SharePoint in minutes.", match: "Building and owning operational tooling with reliability and retry logic — transferable to Puppet/Ansible platform maintenance." },
+      "Azure Functions": { desc: "Built a serverless C# function that auto-splits multi-page Visio network maps.", match: "Serverless automation for repeatable operational workflows — the same mindset as platform-level automation ownership." },
       "Microsoft Graph API": { desc: "Certificate-authenticated Graph client with batched, parallel writes and retry/backoff for SharePoint list updates.", match: "" },
-      "REST APIs": { desc: "Integrated with Microsoft Graph and SharePoint REST endpoints for automated data sync.", match: "API integration for automation and tooling across services." },
+      "REST APIs": { desc: "Integrated with Microsoft Graph and SharePoint REST endpoints for automated data sync.", match: "API integration for operational tooling — relevant to extending and maintaining automation platforms." },
       "SharePoint": { desc: "Backs the Hub Intel tool as its data store and hosts the transport map library.", match: "" },
-      "Git": { desc: "Version control across all of my automation projects.", match: "Core to the GitOps workflows this role calls out — version control, PRs, and config-as-code." },
-      "CI/CD & GitLab Runners": { desc: "GitLab pipeline that deploys the Hub Intel web app on every push to main.", match: "CI/CD pipelines and environment promotion — central to the GitOps focus." },
-      "pytest": { desc: "Property-based tests (Hypothesis) that guard data-integrity invariants in the pipeline.", match: "Automated testing to keep tooling and config changes reliable." },
+      "Git": { desc: "Version control across all of my automation projects.", match: "Version control for automation code and infrastructure — foundational to managing a platform backlog and CI/CD workflow." },
+      "CI/CD & GitLab Runners": { desc: "GitLab pipeline that deploys the Hub Intel web app on every push to main.", match: "CI/CD is the delivery mechanism for automation platform updates — directly maps to executing roadmap priorities reliably." },
+      "Ansible / Puppet (familiar)": { desc: "Working knowledge of infrastructure-as-code concepts through CI/CD pipeline work and Python automation.", match: "The core platforms this role owns — my adjacent IaC and automation experience provides a strong foundation to grow into full Ansible/Puppet platform ownership." },
+      "pytest": { desc: "Property-based tests (Hypothesis) that guard data-integrity invariants in the pipeline.", match: "Testing automation code to keep platform changes reliable — directly supports the team's quality bar." },
 
       // Cloud & AWS
-      "AWS": { desc: "Hands-on via AWS Cloud Quest — Cloud Practitioner complete, Solutions Architect in progress.", match: "Cloud environment understanding needed to operate and improve the platform." },
-      "EC2": { desc: "Provisioned and managed virtual compute instances in Cloud Quest labs.", match: "Compute operation across production and non-production environments." },
-      "S3": { desc: "Object storage for static assets and data across Cloud Quest scenarios.", match: "Cloud storage relevant to telemetry data and artifacts." },
-      "VPC": { desc: "Designed isolated networks with subnets, route tables, and gateways.", match: "Networking fundamentals — one of the environment areas this role expects." },
-      "IAM": { desc: "Configured least-privilege roles and policies for secure access.", match: "Access and security across cloud environments." },
-      "Lambda": { desc: "Built event-driven serverless functions — mirrors my Azure Functions work.", match: "Serverless automation for operational and incident-response tasks." },
+      "AWS": { desc: "Hands-on via AWS Cloud Quest — Cloud Practitioner complete, Solutions Architect in progress.", match: "Cloud infrastructure knowledge relevant to supporting I&O engineering teams on cloud workloads." },
+      "EC2": { desc: "Provisioned and managed virtual compute instances in Cloud Quest labs.", match: "" },
+      "S3": { desc: "Object storage for static assets and data across Cloud Quest scenarios.", match: "" },
+      "VPC": { desc: "Designed isolated networks with subnets, route tables, and gateways.", match: "" },
+      "IAM": { desc: "Configured least-privilege roles and policies for secure access.", match: "" },
+      "Lambda": { desc: "Built event-driven serverless functions — mirrors my Azure Functions work.", match: "Serverless automation at scale — relevant to the automation platform ownership this role requires." },
       "RDS": { desc: "Managed relational databases in the cloud.", match: "" },
       "DynamoDB": { desc: "Worked with NoSQL key-value storage for scalable applications.", match: "" },
       "Route 53": { desc: "DNS routing and health checks.", match: "" },
       "CloudFront": { desc: "CDN delivery for low-latency content.", match: "" },
-      "Auto Scaling": { desc: "Scaled compute automatically to match demand.", match: "Operating services for scalability and resilience." },
-      "ELB": { desc: "Distributed traffic across instances for availability.", match: "Load balancing for high availability and fault tolerance." },
-      "SNS": { desc: "Pub/sub notifications for decoupled messaging.", match: "Alerting and notifications supporting incident detection." },
-      "SQS": { desc: "Message queues for decoupling and buffering workloads.", match: "Queue-based decoupling for resilient services." },
-      "CloudWatch": { desc: "Monitoring, metrics, and alarms — pairs with my NOC surveillance background.", match: "Metrics, logs, and alarms — directly maps to the observability data this platform centers on." },
-      "CloudFormation": { desc: "Infrastructure as code for repeatable deployments.", match: "Infrastructure-as-Code for repeatable delivery and operations." },
+      "Auto Scaling": { desc: "Scaled compute automatically to match demand.", match: "" },
+      "ELB": { desc: "Distributed traffic across instances for availability.", match: "" },
+      "SNS": { desc: "Pub/sub notifications for decoupled messaging.", match: "Event-driven alerting — supports on-call readiness and incident notification workflows." },
+      "SQS": { desc: "Message queues for decoupling and buffering workloads.", match: "" },
+      "CloudWatch": { desc: "Monitoring, metrics, and alarms — pairs with my NOC surveillance background.", match: "Metrics and monitoring — gathering and analyzing metrics to guide the team is a primary responsibility." },
+      "CloudFormation": { desc: "Infrastructure as code for repeatable deployments.", match: "Infrastructure-as-Code mindset — adjacent to Ansible/Puppet platform ownership." },
 
       // Data & Reporting
-      "SQL": { desc: "Query and consolidate hub, node, and device data across multiple systems.", match: "" },
+      "SQL": { desc: "Query and consolidate hub, node, and device data across multiple systems.", match: "Data querying for metrics and reporting — supports the metrics-driven leadership this role requires." },
       "T-SQL": { desc: "Wrote the Remedy (NOC_APPS) query joining hubs, subcounts, and equipment with FOR XML aggregation.", match: "" },
-      "pandas": { desc: "Core of the Hub Intel pipeline — merge, match, and reshape multi-source data.", match: "" },
+      "pandas": { desc: "Core of the Hub Intel pipeline — merge, match, and reshape multi-source data.", match: "Data transformation and pipeline automation — relevant to building reports and collecting trending data." },
       "openpyxl": { desc: "Generate the consolidated CMDB workbook with formatted Excel tables.", match: "" },
-      "ETL / Data Pipelines": { desc: "Consolidated 3,916 hub records from 6 sources into one searchable dataset.", match: "" },
+      "ETL / Data Pipelines": { desc: "Consolidated 3,916 hub records from 6 sources into one searchable dataset.", match: "End-to-end data pipelines — the same pattern used to build and shape metrics dashboards for leadership." },
       "Data Modeling": { desc: "Designed the 26-column CMDB schema, mapping each field to its source system.", match: "" },
-      "CMDB": { desc: "Built and maintain the consolidated configuration/asset database for hub sites.", match: "" },
-      "Power BI": { desc: "Executive reporting and trend dashboards.", match: "" },
+      "CMDB": { desc: "Built and maintain the consolidated configuration/asset database for hub sites.", match: "CMDB ownership directly parallels Puppet/Ansible platform ownership — maintaining the source of truth for infrastructure." },
+      "Power BI": { desc: "Executive reporting and trend dashboards.", match: "Intermediate abilities building reports to collect and forecast trending data — listed as a qualification." },
       "Tableau": { desc: "Data analytics and visualization (Udemy-certified).", match: "" },
-      "Excel": { desc: "Advanced reporting, macros, and data preparation.", match: "" },
+      "Excel": { desc: "Advanced reporting, macros, and data preparation.", match: "Report building and data analysis — used for metrics that guide team decisions." },
       "Access": { desc: "Relational lookups and departmental data tools.", match: "" },
-      "Executive Reporting": { desc: "Monthly leadership reporting and year-over-year trend analysis.", match: "" },
+      "Executive Reporting": { desc: "Monthly leadership reporting and year-over-year trend analysis.", match: "Gathering and analyzing metrics around products and processes to guide the team — an explicit responsibility of this role." },
 
       // Operations & Process
-      "ITIL Framework": { desc: "Change, incident, and problem practices applied daily on a large-scale network.", match: "Core to the IT Service Management requirement — incident, problem, and change practices." },
-      "Change Management": { desc: "Review 1,000+ planned maintenance changes a year to prevent self-induced outages.", match: "Proactive change management to protect production and maximize customer experience." },
-      "Incident Management": { desc: "Led outage bridges and coordinated multi-team responses in the NOC.", match: "Triage and incident response — a central SRE responsibility in this role." },
-      "Problem Management": { desc: "Root-cause recurring issues and drive preventative fixes.", match: "Problem management and prevention, aligned with the ITSM requirement." },
-      "Root Cause Analysis": { desc: "Investigate alarms and defects to eliminate repeat impact.", match: "Root cause and blameless post-mortems, exactly as this role describes." },
-      "Network Surveillance": { desc: "Monitored VoIP/HSD/Video events with Netcool and Remedy.", match: "Production monitoring/surveillance that maps to observability and proactive monitoring." },
-      "Method of Procedure": { desc: "Authored MOP templates and process docs across 7 verticals.", match: "Documenting operational procedures and standards — a listed responsibility." },
-      "Compliance & Risk": { desc: "Validate scope and dependencies to reduce change risk.", match: "Compliance and risk mitigation across environments, called out explicitly." },
+      "ITIL Framework": { desc: "Change, incident, and problem practices applied daily on a large-scale network.", match: "ITIL practices — change, incident, and problem management — are the operational foundation this team lead role builds on." },
+      "Change Management": { desc: "Review 1,000+ planned maintenance changes a year to prevent self-induced outages.", match: "Listed as a preferred qualification — direct enterprise change management experience is a differentiator for this role." },
+      "Incident Management": { desc: "Led outage bridges and coordinated multi-team responses in the NOC.", match: "Incident response and on-call readiness are explicit responsibilities — led multi-team calls and managed live outages." },
+      "Problem Management": { desc: "Root-cause recurring issues and drive preventative fixes.", match: "Proactively driving long-term fixes over reactive support — exactly the mindset WWT calls out." },
+      "Root Cause Analysis": { desc: "Investigate alarms and defects to eliminate repeat impact.", match: "Continuously improving processes and eliminating recurring issues — a core expectation for this role." },
+      "Network Surveillance": { desc: "Monitored VoIP/HSD/Video events with Netcool and Remedy.", match: "" },
+      "Method of Procedure": { desc: "Authored MOP templates and process docs across 7 verticals.", match: "Documenting all new processes is a stated responsibility — proven track record ensuring process knowledge is captured and adopted." },
+      "Backlog Management": { desc: "Prioritized and tracked automation work and improvement projects across multiple teams.", match: "Managing a prioritized backlog is a core responsibility — ability to plan and deliver team work is an explicit requirement." },
+      "Team Leadership & Mentoring": { desc: "Informal floor support leader, mentored new hires, coached peers on policy and tooling.", match: "Directly maps to the emerging people leadership requirement — mentoring, coaching, and helping team members grow technically and professionally." },
+      "Compliance & Risk": { desc: "Validate scope and dependencies to reduce change risk.", match: "" },
 
       // Platforms & Tools
-      "Microsoft 365": { desc: "Day-to-day platform for automation across SharePoint, Power Platform, and Graph.", match: "" },
-      "Azure": { desc: "Serverless functions and cloud identity via app registrations and certificates.", match: "Cloud platform for deploying and operating scalable, available applications." },
+      "Microsoft 365": { desc: "Day-to-day platform for automation across SharePoint, Power Platform, and Graph.", match: "Supporting internal operational teams on M365 tooling — one of the I&O customer platforms." },
+      "Azure": { desc: "Serverless functions and cloud identity via app registrations and certificates.", match: "Cloud platform experience relevant to supporting I&O engineering customers on cloud infrastructure." },
       "SharePoint Online": { desc: "Hosts the Hub Intel data source and the Visio map library.", match: "" },
-      "Visio": { desc: "Parse .vsdx network maps to extract CLLIs and link topology to hubs.", match: "Documenting operational procedures and architecture — a listed responsibility." },
-      "GitLab": { desc: "Source control and CI/CD for the Hub Intel projects.", match: "CI/CD platform for reliable, automated software delivery." },
-      "BMC Remedy": { desc: "Source of hub/equipment data and the change ticketing system.", match: "ITSM platform for incident, problem, and change management." },
-      "Jira": { desc: "Issue and work tracking.", match: "Agile issue tracking used in DevOps workflows." },
-      "Netcool": { desc: "Network event monitoring in the NOC.", match: "Real-time event monitoring/observability — core to SRE proactive monitoring." },
-      "PowerPoint": { desc: "Executive presentations, including the Hub Intel rollout deck.", match: "" }
+      "Visio": { desc: "Parse .vsdx network maps to extract CLLIs and link topology to hubs.", match: "" },
+      "GitLab": { desc: "Source control and CI/CD for the Hub Intel projects.", match: "CI/CD platform for reliable automation delivery — relevant to managing the team's automation platform roadmap." },
+      "BMC Remedy": { desc: "Source of hub/equipment data and the change ticketing system.", match: "Enterprise ITSM platform — supports change, incident, and problem tracking, directly relevant to the I&O operational model." },
+      "Jira": { desc: "Issue and work tracking.", match: "Backlog and work-tracking tool — used for prioritizing and managing a team's delivery commitments." },
+      "Netcool": { desc: "Network event monitoring in the NOC.", match: "" },
+      "PowerPoint": { desc: "Executive presentations, including the Hub Intel rollout deck.", match: "Leadership reporting and stakeholder communication — used to present metrics and strategy to leadership." }
     };
 
     (function () {
